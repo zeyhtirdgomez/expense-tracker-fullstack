@@ -33,7 +33,23 @@ const validateCategory = (req, res, next) => {
     next();
 };
 
+const updateAmountValidation = (req, res, next) => {
+    // Check whether
+    const amount = req.body.amount;
+    if (amount === undefined)
+        return next();
+
+    if (amount === null || isNaN(amount))
+        return res.status(400).json({message : "Amount must be a number."});
+    
+    if (amount < 0)
+        return res.status(400).json({message : "Amount cannot be negative."});
+    req.body.amount = Number(amount);
+    return next();
+};
+
 module.exports = {
     validateAmount,
-    validateCategory
+    validateCategory,
+    updateAmountValidation,
 };
