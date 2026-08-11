@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//Structural framework for Expense model
 const expenseSchema = new mongoose.Schema({
     amount : {
         type: Number,
@@ -13,7 +14,7 @@ const expenseSchema = new mongoose.Schema({
     },
     description : {
         type: String,
-        trim : true
+        trim : true //To remove whitespaces before and after alphnum
     },
     date : {
         type : Date,
