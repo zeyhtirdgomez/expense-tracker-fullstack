@@ -1,4 +1,3 @@
-// Object declaration and destucturing
 const express = require("express");
 require("dotenv").config();
 
@@ -14,12 +13,13 @@ const expenseRouter = require('./src/routes/expenseRoutes');
 app.use(express.json());
 
 //Endpoints
+app.use('/api/expenses', expenseRouter);
+
 app.get("/", (req, res) => {
     res.status(200).json({message: "Expense Tracker API"});
 });
 
-app.use('/api/expense', expenseRouter);
-
+// Error Handling
 app.use(errorHandler);
 
 //Starting server
@@ -31,7 +31,8 @@ const startServer = async () => {
         });
 
     } catch (error) {
-        console.log("Failed to connect");
+        console.log("Failed to connect: ", error);
+        process.exit(1);
     }
 };
 
