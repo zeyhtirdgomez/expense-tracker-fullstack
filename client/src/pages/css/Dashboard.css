@@ -1,0 +1,46 @@
+.dashboard{
+    margin-top: 50px;
+}
+
+.summary {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px;
+}
+
+.summary section{
+    border: 2px solid black;
+    flex: 1;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.summary section span {
+    font-size: 35px;
+}
+
+.summary .total-expenses{
+    background: lightblue;
+}
+
+.summary .this-month{
+    background: lightgreen;
+}
+
+.summary .budget-remaining{
+    background: lightpink;
+}
+
+.add-expense{
+    width: 200px;
+    align-self: center;
+    margin-bottom: 30px;
+    padding: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 25px;
+    border: none;
+}
+

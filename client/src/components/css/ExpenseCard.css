@@ -1,0 +1,24 @@
+.expense-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    border: 2px solid black;
+    width: 500px;
+    border-radius: 25px;
+    font-size: 18px;
+    gap: 20px;
+}
+
+.expense-card span {
+    font-size: 35px;
+}
+
+.expense-card h3{
+    margin: 0px;
+}
+
+.expense-card p{
+    margin: 0px;
+}
