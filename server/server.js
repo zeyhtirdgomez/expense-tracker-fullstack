@@ -6,6 +6,10 @@ const PORT = process.env.PORT; // Port number from .env
 const connectDB = require("./src/config/db"); // Databse connection
 const errorHandler = require('./src/middleware/errorHandler');
 
+//CORS
+const cors = require('cors');
+app.use(cors());
+
 //Routers
 const expenseRouter = require('./src/routes/expenseRoutes');
 

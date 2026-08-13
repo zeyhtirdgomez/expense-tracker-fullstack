@@ -1,33 +1,14 @@
 import ExpenseCard  from "./ExpenseCard";
 import './css/ExpenseList.css';
 
-const expenses = [
-    {
-        id : 1,
-        category : 'Food',
-        description : 'Lunch',
-        amount : 150
-    },
-    {
-        id : 2,
-        category : 'School',
-        description : 'Supplies',
-        amount : 200
-    },
-    {
-        id : 3,
-        category : 'Transportation',
-        description : 'Jeepney',
-        amount : 50
-    }
-];
+function ExpenseList(props) {
 
-function ExpenseList() {
-
+    const expenses = props.expenses;
+    
     return(
         <div className="expense-list">
             {expenses.map(expense => <ExpenseCard
-                                        key = {expense.id} 
+                                        key = {expense._id} 
                                         category={expense.category}
                                         description={expense.description} 
                                         amount={expense.amount}
