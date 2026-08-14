@@ -9,9 +9,11 @@ function ExpenseList(props) {
         <div className="expense-list">
             {expenses.map(expense => <ExpenseCard
                                         key = {expense._id} 
+                                        id = {expense._id}
                                         category={expense.category}
                                         description={expense.description} 
                                         amount={expense.amount}
+                                        date={expense.date}
                                     /> 
             )}
         </div>

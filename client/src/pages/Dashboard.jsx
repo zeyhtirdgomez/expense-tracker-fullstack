@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import ExpenseList from '../components/ExpenseList';
+import ExpenseForm from '../components/ExpenseForm';
 import './css/Dashboard.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -31,6 +32,10 @@ function Dashboard() {
         fetchExpenses();
     }, []); 
     
+    const handleExpenseAdded = (newExpense) => {
+        setExpenses(prevExpenses => [...prevExpenses, newExpense]);
+    };
+
     return (        
         <>
             <Header />
@@ -62,6 +67,7 @@ function Dashboard() {
             }
 
             <button className='add-expense'>Add</button>
+            <ExpenseForm onExpenseAdded={handleExpenseAdded}/>
         </>
     )
 }

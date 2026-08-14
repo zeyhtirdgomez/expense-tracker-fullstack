@@ -1,0 +1,192 @@
+/* ExpenseForm.css */
+
+.expense-form {
+    width: 100%;
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 28px;
+
+    background: #fffdf7;
+    border: 1px solid #d8e3d8;
+    border-radius: 14px;
+
+    box-shadow: 0 6px 20px rgba(47, 93, 80, 0.10);
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    box-sizing: border-box;
+}
+
+/* Title */
+.expense-form h3 {
+    margin: 0 0 15px;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #2f5d50;
+}
+
+/* Labels */
+.expense-form label {
+    margin-top: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #37483f;
+}
+
+/* Inputs and select */
+.form-input {
+    width: 100%;
+    height: 44px;
+
+    padding: 0 12px;
+
+    border: 1px solid #c9d8cc;
+    border-radius: 8px;
+
+    background: #f8f3e7;
+    color: #26352e;
+
+    font-size: 15px;
+
+    outline: none;
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.form-input::placeholder {
+    color: #8b9a90;
+}
+
+.form-input:focus {
+    background: #fffdf7;
+    border-color: #4f8068;
+
+    box-shadow: 0 0 0 3px rgba(79, 128, 104, 0.15);
+}
+
+/* Amount wrapper */
+.input-wrapper {
+    display: flex;
+
+    width: 100%;
+    height: 44px;
+}
+
+/* PHP prefix */
+.prefix {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 13px;
+
+    background: #dde9df;
+
+    border: 1px solid #c9d8cc;
+    border-right: none;
+
+    border-radius: 8px 0 0 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #2f5d50;
+}
+
+/* Amount input */
+.input-wrapper .form-input {
+    border-radius: 0 8px 8px 0;
+}
+
+/* Remove number arrows */
+.input-wrapper input[type="number"]::-webkit-inner-spin-button,
+.input-wrapper input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-wrapper input[type="number"] {
+    appearance: textfield;
+}
+
+/* Error */
+.form-error {
+    padding: 10px 12px;
+    margin-bottom: 4px;
+
+    background: #f8e8df;
+    border: 1px solid #e4b9a5;
+    border-radius: 8px;
+
+    color: #9a4d35;
+
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Select */
+select.form-input {
+    cursor: pointer;
+}
+
+/* Submit button */
+#submit-btn {
+    width: 100%;
+    height: 46px;
+
+    margin-top: 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #2f5d50;
+    color: #fffdf7;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease,
+        box-shadow 0.2s ease;
+}
+
+#submit-btn:hover:not(:disabled) {
+    background: #244a3f;
+
+    box-shadow: 0 4px 12px rgba(47, 93, 80, 0.25);
+}
+
+#submit-btn:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+#submit-btn:disabled {
+    background: #91aa9a;
+    color: #eef3ed;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .expense-form {
+        margin: 20px 15px;
+        padding: 22px;
+    }
+
+    .expense-form h3 {
+        font-size: 21px;
+    }
+}

@@ -1,24 +1,75 @@
+/* ExpenseCard.css */
+
 .expense-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px;
-    border: 2px solid black;
-    width: 500px;
-    border-radius: 25px;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: #fffdf7;
+    border: 1px solid #d8e3d8;
+    border-left: 5px solid #2f5d50;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(47, 93, 80, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.expense-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 7px 18px rgba(47, 93, 80, 0.13);
+}
+
+/* Category */
+.expense-card h3 {
+    margin: 0 0 6px;
+
+    color: #2f5d50;
+
     font-size: 18px;
-    gap: 20px;
+    font-weight: 700;
 }
 
-.expense-card span {
-    font-size: 35px;
+/* Amount */
+.expense-card > span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #26352e;
+
+    font-size: 22px;
+    font-weight: 700;
 }
 
-.expense-card h3{
-    margin: 0px;
+/* Description */
+.expense-card p {
+    margin: 5px 0;
+
+    color: #526158;
+
+    font-size: 14px;
+    line-height: 1.5;
 }
 
-.expense-card p{
-    margin: 0px;
+/* Date */
+.expense-card p:last-child {
+    display: inline-block;
+
+    margin-top: 10px;
+    padding: 5px 9px;
+
+    background: #dde9df;
+    border-radius: 6px;
+
+    color: #2f5d50;
+
+    font-size: 12px;
+    font-weight: 600;
 }

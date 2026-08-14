@@ -1,46 +1,228 @@
-.dashboard{
-    margin-top: 50px;
+/* Dashboard.css */
+
+.dashboard {
+    max-width: 1100px;
+    margin: 35px auto 22px;
+    padding: 0 20px;
+
+    color: #2f5d50;
+    font-size: 28px;
+    font-weight: 700;
 }
+
+
+/* =========================
+   SUMMARY
+   ========================= */
 
 .summary {
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 25px;
+    max-width: 1100px;
+    margin: 0 auto 35px;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.summary section{
-    border: 2px solid black;
-    flex: 1;
-    padding: 20px;
-    border-radius: 20px;
-}
 
-.summary section span {
-    font-size: 35px;
-}
+/* Base summary card */
+.summary section {
+    position: relative;
+    overflow: hidden;
 
-.summary .total-expenses{
-    background: lightblue;
-}
+    min-height: 125px;
+    padding: 22px;
 
-.summary .this-month{
-    background: lightgreen;
-}
+    background: #f8f3e7;
 
-.summary .budget-remaining{
-    background: lightpink;
-}
-
-.add-expense{
-    width: 200px;
-    align-self: center;
-    margin-bottom: 30px;
-    padding: 25px;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 25px;
     border: none;
+    border-radius: 16px;
+
+    box-shadow: 0 5px 15px rgba(47, 93, 80, 0.08);
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
+.summary section:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 9px 20px rgba(47, 93, 80, 0.12);
+}
+
+
+/* Decorative circle */
+.summary section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    right: -35px;
+    bottom: -45px;
+
+    background: #dde9df;
+
+    border-radius: 50%;
+}
+
+
+/* =========================
+   CARD CONTENT
+   ========================= */
+
+.summary h3 {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 0 12px;
+
+    color: #526158;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.summary span {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+
+    color: #2f5d50;
+
+    font-size: 26px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   INDIVIDUAL CARDS
+   ========================= */
+
+/* Total expenses */
+.total-expenses {
+    background: #e8f0e8 !important;
+}
+
+.total-expenses::after {
+    background: #cbdccc !important;
+}
+
+
+/* This month */
+.this-month {
+    background: #f8f3e7 !important;
+}
+
+.this-month::after {
+    background: #e9dfc9 !important;
+}
+
+
+/* Budget remaining */
+.budget-remaining {
+    background: #dde9df !important;
+}
+
+.budget-remaining::after {
+    background: #c1d6c5 !important;
+}
+
+
+/* =========================
+   ADD BUTTON
+   ========================= */
+
+.add-expense {
+    display: block;
+
+    margin: 0 auto 35px;
+    padding: 11px 24px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #2f5d50;
+    color: #fffdf7;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(47, 93, 80, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.add-expense:hover {
+    background: #244a3f;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 14px rgba(47, 93, 80, 0.22);
+}
+
+.add-expense:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 800px) {
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard {
+        font-size: 24px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .dashboard {
+        margin-top: 25px;
+        padding: 0 15px;
+
+        font-size: 22px;
+    }
+
+    .summary {
+        padding: 0 15px;
+        gap: 14px;
+    }
+
+    .summary section {
+        min-height: 115px;
+        padding: 19px;
+    }
+
+    .summary span {
+        font-size: 23px;
+    }
+
+    .add-expense {
+        right: 20px;
+        bottom: 20px;
+
+        width: 52px;
+        height: 52px;
+
+        font-size: 25px;
+    }
+}
