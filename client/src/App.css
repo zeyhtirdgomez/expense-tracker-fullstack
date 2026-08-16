@@ -1,0 +1,283 @@
+/* App.css */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    background: #f5f1e7;
+
+    color: #26352e;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+
+/* =========================
+   ROOT
+   ========================= */
+
+#root {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    isolation: isolate;
+}
+
+
+/* =========================
+   AMBIENT BACKGROUND
+   ========================= */
+
+#root::before {
+    content: "";
+
+    position: fixed;
+
+    width: 650px;
+    height: 650px;
+
+    top: -280px;
+    left: -180px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(79, 128, 104, 0.20) 0%,
+            rgba(79, 128, 104, 0.10) 35%,
+            transparent 70%
+        );
+
+    filter: blur(35px);
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+
+/* Second ambient light */
+#root::after {
+    content: "";
+
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    right: -250px;
+    bottom: -300px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(221, 233, 223, 0.90) 0%,
+            rgba(221, 233, 223, 0.45) 40%,
+            transparent 72%
+        );
+
+    filter: blur(45px);
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+
+/* =========================
+   PAGE GLASS OVERLAY
+   ========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.32),
+            transparent 35%,
+            rgba(47, 93, 80, 0.025)
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================
+   MAIN PAGE CONTENT
+   ========================= */
+
+.dashboard,
+.summary {
+    width: 100%;
+    max-width: 1100px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Dashboard heading */
+.dashboard {
+    margin-top: 35px;
+    margin-bottom: 22px;
+
+    padding: 0 20px;
+
+    color: #2f5d50;
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+
+/* Summary */
+.summary {
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   GLASS UTILITY
+   ========================= */
+
+.glass {
+    background: rgba(255, 253, 247, 0.58);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 12px 35px rgba(47, 93, 80, 0.08),
+        0 2px 8px rgba(47, 93, 80, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+    backdrop-filter: blur(20px) saturate(110%);
+    -webkit-backdrop-filter: blur(20px) saturate(110%);
+}
+
+
+/* =========================
+   FORM CENTERING
+   ========================= */
+
+.expense-form {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================
+   EXPENSE LIST
+   ========================= */
+
+.expense-list {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 16px;
+}
+
+
+/* =========================
+   SELECTION
+   ========================= */
+
+::selection {
+    background: #cbdccc;
+    color: #2f5d50;
+}
+
+
+/* =========================
+   SCROLLBAR
+   ========================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f1e7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b9cdbd;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #789b82;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard {
+        font-size: 24px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .dashboard {
+        margin-top: 25px;
+        padding: 0 15px;
+
+        font-size: 22px;
+    }
+
+    .summary {
+        padding: 0 15px;
+
+        gap: 14px;
+    }
+}

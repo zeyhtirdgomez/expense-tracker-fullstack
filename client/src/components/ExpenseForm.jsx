@@ -1,9 +1,9 @@
 import axios from 'axios';
 import './css/ExpenseForm.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function ExpenseForm ({onExpenseAdded}){
-
+function ExpenseForm ({onExpenseAdded, expense, onExpenseUpdated}){
+    const isEditing = Boolean(expense);
     const [amount, setAmount] = useState('');
     const [category, setCategory] = useState('');
     const [description, setDescription] = useState('');
@@ -15,17 +15,22 @@ function ExpenseForm ({onExpenseAdded}){
         setError(null);
         setSubmitting(true);
 
-        const expense = {
+        const data = {
             amount : Number(amount),
             category,
             description
         };
 
         try {
-            const response = await axios.post('http://localhost:5000/api/expenses/', expense);
-            console.log(response.data);
-            onExpenseAdded(response.data);
-            setAmount('');
+            if (isEditing){
+                const response = await axios.patch(`http://localhost:5000/api/expenses/${expense._id}`, data);
+                onExpenseUpdated(response.data);
+            } else{
+                const response = await axios.post('http://localhost:5000/api/expenses/', data);
+                onExpenseAdded(response.data);
+            }
+            
+            setAmount('')
             setCategory('');
             setDescription('');
 
@@ -36,6 +41,15 @@ function ExpenseForm ({onExpenseAdded}){
             setSubmitting(false);
         }
     };
+
+    useEffect(() => {
+        if (expense){
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setAmount(expense.amount);
+            setCategory(expense.category);
+            setDescription(expense.description);
+        }
+    }, [expense]);
 
     return(
         <form className="expense-form" onSubmit={handleSubmit}>
@@ -63,7 +77,6 @@ function ExpenseForm ({onExpenseAdded}){
                 className="form-input" 
                 name="category" 
                 id="category"
-                value={category}
                 onChange = {(event) => setCategory(event.target.value)}
                 required
             >
@@ -92,7 +105,7 @@ function ExpenseForm ({onExpenseAdded}){
 
             <input 
                 type="submit" 
-                value={submitting? 'Adding...' : 'Add Expense'} 
+                value={submitting ? (isEditing ? 'Saving...': 'Adding...') : (isEditing ? 'Save Changes' : 'Add Expense')} 
                 id='submit-btn'
                 disabled={submitting}
             />

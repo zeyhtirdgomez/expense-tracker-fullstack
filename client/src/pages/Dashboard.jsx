@@ -9,6 +9,8 @@ import axios from 'axios';
 function Dashboard() {
 
     const [expenses, setExpenses] = useState([]);
+    const [editingExpense, setEditingExpense] = useState(null);
+    const [addExpense, setAddExpense] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error , setError] = useState(null);
 
@@ -34,6 +36,19 @@ function Dashboard() {
     
     const handleExpenseAdded = (newExpense) => {
         setExpenses(prevExpenses => [...prevExpenses, newExpense]);
+    };
+
+    const handleExpenseDeleted = (deletedId) => {
+        setExpenses(prevExpenses => prevExpenses.filter(expense => expense._id !== deletedId));
+    };
+
+    const handleEditExpense = (expense) => {
+        setEditingExpense(expense)
+        console.log(editingExpense);
+    };
+
+    const handleExpenseUpdated = (updatedExpense) => {
+        setExpenses(prevExpenses => prevExpenses.map(expense => expense._id === updatedExpense._id ? updatedExpense : expense));
     };
 
     return (        
@@ -63,11 +78,20 @@ function Dashboard() {
                 loading ? (<span>Loading...</span>) : 
                 error ?   (<span>{error}</span>) :
                 expenses.length === 0 ? (<span>No expenses yet.</span>) :
-                (<ExpenseList expenses={expenses}/>)
+                (<ExpenseList expenses={expenses} onExpenseDeleted={handleExpenseDeleted} onEditExpense={handleEditExpense}/>)
             }
 
-            <button className='add-expense'>Add</button>
-            <ExpenseForm onExpenseAdded={handleExpenseAdded}/>
+            <button className='add-expense' onClick={() => {
+                setAddExpense(true);
+            }}>Add</button>
+
+            {editingExpense &&
+                <ExpenseForm expense={editingExpense} onExpenseUpdated={handleExpenseUpdated}/>
+            }
+
+            {addExpense &&
+                <ExpenseForm onExpenseAdded={handleExpenseAdded}/>
+            }
         </>
     )
 }

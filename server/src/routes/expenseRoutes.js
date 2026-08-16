@@ -22,6 +22,7 @@ router.get("/", getExpenses);
 router.get('/:id', getExpense);
 router.post("/", validateAmount, validateCategory, postExpense);
 router.patch("/:id", updateAmountValidation, updateExpense);
+router.put("/:id", updateAmountValidation, updateExpense);
 router.delete("/:id", deleteExpense);
 
 module.exports = router;

@@ -1,56 +1,64 @@
 /* ExpenseCard.css */
 
 .expense-card {
+    position: relative;
+
     width: 100%;
-    max-width: 450px;
-    padding: 20px;
+    max-width: 520px;
+
+    padding: 22px;
 
     box-sizing: border-box;
 
     background: #fffdf7;
+
     border: 1px solid #d8e3d8;
-    border-left: 5px solid #2f5d50;
-    border-radius: 12px;
+    border-radius: 16px;
 
-    box-shadow: 0 4px 12px rgba(47, 93, 80, 0.08);
+    box-shadow: 0 4px 14px rgba(47, 93, 80, 0.07);
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    overflow: hidden;
 }
 
-/* Hover effect */
-.expense-card:hover {
-    transform: translateY(-2px);
 
-    box-shadow: 0 7px 18px rgba(47, 93, 80, 0.13);
-}
+/* =========================
+   TOP ROW
+   ========================= */
 
-/* Category */
 .expense-card h3 {
-    margin: 0 0 6px;
+    margin: 0;
 
     color: #2f5d50;
 
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
+
+    letter-spacing: 0.2px;
 }
 
-/* Amount */
+
+/* =========================
+   AMOUNT
+   ========================= */
+
 .expense-card > span {
     display: block;
 
-    margin-bottom: 12px;
+    margin-top: 8px;
 
     color: #26352e;
 
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 700;
 }
 
-/* Description */
-.expense-card p {
-    margin: 5px 0;
+
+/* =========================
+   DESCRIPTION
+   ========================= */
+
+.expense-card p:first-of-type {
+    margin: 12px 0 16px;
 
     color: #526158;
 
@@ -58,18 +66,265 @@
     line-height: 1.5;
 }
 
-/* Date */
+
+/* =========================
+   BOTTOM ROW
+   ========================= */
+
 .expense-card p:last-child {
     display: inline-block;
 
-    margin-top: 10px;
-    padding: 5px 9px;
+    margin: 0;
 
+    padding-top: 10px;
+
+    border-top: 1px solid #e1e8e1;
+
+    color: #7b887f;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   ACTIONS
+   ========================= */
+
+.expense-actions {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+/* Individual button */
+.expense-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    border: 1px solid #d8e3d8;
+    border-radius: 8px;
+
+    background: #f8f3e7;
+    color: #526158;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+}
+
+
+/* Edit */
+.expense-actions button:first-child:hover {
     background: #dde9df;
-    border-radius: 6px;
+
+    border-color: #b9cdbd;
 
     color: #2f5d50;
 
-    font-size: 12px;
-    font-weight: 600;
+    transform: translateY(-1px);
+}
+
+
+/* Delete */
+.expense-actions button:last-child:hover {
+    background: #f8e8df;
+
+    border-color: #e4b9a5;
+
+    color: #9a4d35;
+
+    transform: translateY(-1px);
+}
+
+
+/* Icons */
+.expense-actions svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* =========================
+   SUBTLE ACCENT
+   ========================= */
+
+.expense-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 45px;
+    height: 3px;
+
+    background: #4f8068;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 500px) {
+
+    .expense-card {
+        padding: 19px;
+    }
+
+    .expense-card > span {
+        font-size: 23px;
+    }
+
+    .expense-actions {
+        top: 15px;
+        right: 15px;
+
+        gap: 7px;
+    }
+
+    .expense-actions button {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* =========================
+   CARD HOVER
+   ========================= */
+
+.expense-card {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.expense-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #b9cdbd;
+
+    box-shadow:
+        0 10px 24px rgba(47, 93, 80, 0.12),
+        0 2px 5px rgba(47, 93, 80, 0.06);
+}
+
+
+/* =========================
+   CATEGORY HOVER
+   ========================= */
+
+.expense-card h3 {
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.expense-card:hover h3 {
+    color: #4f8068;
+    transform: translateX(2px);
+}
+
+
+/* =========================
+   AMOUNT HOVER
+   ========================= */
+
+.expense-card > span {
+    transition: color 0.2s ease;
+}
+
+.expense-card:hover > span {
+    color: #2f5d50;
+}
+
+
+/* =========================
+   EDIT / DELETE BUTTONS
+   ========================= */
+
+.expense-actions button {
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Edit */
+.expense-actions button:first-child:hover {
+    background: #dde9df;
+
+    border-color: #b9cdbd;
+
+    color: #2f5d50;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 3px 7px rgba(47, 93, 80, 0.12);
+}
+
+
+/* Delete */
+.expense-actions button:last-child:hover {
+    background: #f8e8df;
+
+    border-color: #e4b9a5;
+
+    color: #9a4d35;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 3px 7px rgba(154, 77, 53, 0.10);
+}
+
+
+/* =========================
+   ICON HOVER
+   ========================= */
+
+.expense-actions svg {
+    transition:
+        transform 0.2s ease;
+}
+
+.expense-actions button:hover svg {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   BOTTOM ACCENT
+   ========================= */
+
+.expense-card::after {
+    transition:
+        width 0.3s ease,
+        background 0.3s ease;
+}
+
+.expense-card:hover::after {
+    width: 90px;
+    background: #2f5d50;
 }

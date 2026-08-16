@@ -11,12 +11,14 @@ const cors = require('cors');
 app.use(cors());
 
 //Routers
+const authRoutes = require('./src/routes/authRoutes');
 const expenseRouter = require('./src/routes/expenseRoutes');
 
 //Parses JSON requests
 app.use(express.json());
 
 //Endpoints
+app.use('/api/auth', authRoutes);
 app.use('/api/expenses', expenseRouter);
 
 app.get("/", (req, res) => {
