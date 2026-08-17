@@ -29,7 +29,7 @@ function Register () {
             console.log(response.data);
 
         } catch (error) {
-            console.log('Faled to regster: ', error);
+            console.log('Failed to register: ', error);
             setError(error.response?.data?.message || 'Unable to connect to the server.');
         }
     }
