@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react';
+import {useNavigate, Link} from 'react-router-dom';
 
 function Login () {
-
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
@@ -21,15 +22,7 @@ function Login () {
 
             const token = response?.data?.token;
             localStorage.setItem('token', token);
-
-            // Protected Route
-            const protectedResponse = await axios.get('http://localhost:5000/api/auth/me', {
-                headers : {
-                    Authorization : `Bearer ${token}`                    
-                }
-            });
-
-            console.log(protectedResponse.data);
+            navigate('/dashboard');
 
             setEmail('');
             setPassword('');
@@ -47,7 +40,7 @@ function Login () {
         <form onSubmit={handleSubmit}>
             <h2>Login</h2>
 
-            {error && <span>{error}</span>}
+            {error && <span className='fail-banner'>{error}</span>}
 
             <label htmlFor = 'email'>EMAIL</label>
             <input type = 'email' id = 'email' required onChange={(event) => setEmail(event.target.value)} value={email} />
@@ -56,6 +49,9 @@ function Login () {
             <input type='password' id='password' required onChange={(event) => setPassword(event.target.value)} value={password} />
 
             <input type='submit' id='submit-btn' value={"Login"} />
+            <p>
+                Don't have an account yet? <Link to='/register'>Register</Link>
+            </p>
         </form>
     )
 }

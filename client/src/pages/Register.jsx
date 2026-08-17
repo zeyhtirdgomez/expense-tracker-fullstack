@@ -1,4 +1,5 @@
 import './css/Register.css'
+import {Link} from 'react-router-dom';
 
 import {useState} from 'react';
 import axios from 'axios';
@@ -50,6 +51,10 @@ function Register () {
             {success && <span className='success-banner'>Registration successful!</span>}
 
             <input type='submit' id='submit-btn' value={'Register'}/>
+
+            <p>
+                Already have an account? <Link to='/login'>Login</Link>
+            </p>
         </form>
     )
 }

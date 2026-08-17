@@ -15,7 +15,7 @@ const {
     validateAmount, 
     validateCategory,
     updateAmountValidation,
-} = require('../middleware/expenseValidation');
+} = require('../middleware/incomeExpenseValidation');
 const authMiddleware = require('../middleware/authMiddleware');
 
 router.get("/", authMiddleware, getExpenses);

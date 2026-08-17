@@ -1,9 +1,8 @@
 import axios from 'axios';
-import './css/ExpenseForm.css';
+import './css/IncomeForm.css';
 import { useState, useEffect } from 'react';
 
-function ExpenseForm ({onExpenseAdded, expense, onExpenseUpdated, onClose}){
-    const isEditing = Boolean(expense);
+function IncomeForm ({onIncomeAdded, income, onClose}){
     const [amount, setAmount] = useState('');
     const [category, setCategory] = useState('');
     const [description, setDescription] = useState('');
@@ -22,47 +21,38 @@ function ExpenseForm ({onExpenseAdded, expense, onExpenseUpdated, onClose}){
         };
 
         try {
-
-            if (isEditing){
-                const response = await axios.patch(`http://localhost:5000/api/expenses/${expense._id}`, 
-                    data,
-                    {headers : { Authorization : `Bearer ${localStorage.getItem("token")}`}}
-                );
-                onExpenseUpdated(response.data);
-            } else{
-                const response = await axios.post('http://localhost:5000/api/expenses/',
-                    data,
-                    {headers : {Authorization : `Bearer ${localStorage.getItem("token")}`}}
-                );
-                onExpenseAdded(response.data);
-            }
+            const response = await axios.post('http://localhost:5000/api/incomes/',
+                data,
+                {headers : {Authorization : `Bearer ${localStorage.getItem("token")}`}}
+            );
+            
+            onIncomeAdded(response.data);
             
             setAmount('')
             setCategory('');
             setDescription('');
 
         } catch (error) {
-            console.log("Failed to submit expense: ", error);
-            console.log("Server response: ", error.response?.data);
-            setError(error.response?.data?.message || "Failed to submit try again.");
+            console.log("Failed to submit income: ", error);
+            setError("Failed to submit try again.");
         } finally {
             setSubmitting(false);
         }
     };
 
     useEffect(() => {
-        if (expense){
+        if (income){
             // eslint-disable-next-line react-hooks/set-state-in-effect
-            setAmount(expense.amount);
-            setCategory(expense.category);
-            setDescription(expense.description);
+            setAmount(income.amount);
+            setCategory(income.category);
+            setDescription(income.description);
         }
-    }, [expense]);
+    }, [income]);
 
     return(
-        <form className="expense-form" onSubmit={handleSubmit}>
+        <form className="income-form" onSubmit={handleSubmit}>
             <button type='button' onClick={onClose}>X</button>
-            <h3>Expense Form</h3>
+            <h3>Income Form</h3>
             {error && <span className='form-error'>{error}</span>}
             <label htmlFor='amount'>Amount</label>
             <div className='input-wrapper'>
@@ -88,15 +78,11 @@ function ExpenseForm ({onExpenseAdded, expense, onExpenseUpdated, onClose}){
                 onChange = {(event) => setCategory(event.target.value)}
                 required
             >
-                <option value={''} disabled hidden>-- Choose an option --</option>
+                <option value="" disabled hidden>-- Choose an option --</option>
             
-                <option value={'Tithes'}>Tithes</option>
-                <option value={'Food'}>Food</option>
-                <option value={'Transport'}>Transport</option>
-                <option value={'School'}>School</option>
-                <option value={'Bills'}>Bills</option>
-                <option value={'Shopping'}>Shopping</option>
-                <option value={'Savings'}>Savings</option>
+                <option value={'Salary'}>Salary</option>
+                <option value={'Allowance'}>Allowance</option>
+                <option value={'Scholarship'}>Scholarship</option>
                 <option value={'Others'}>Others</option>
             </select>
 
@@ -104,7 +90,7 @@ function ExpenseForm ({onExpenseAdded, expense, onExpenseUpdated, onClose}){
             <input 
                 type="text" 
                 className="form-input" 
-                placeholder='For afternoon snack.' 
+                placeholder='Freelance Gig.' 
                 id='description'
                 value={description}
                 onChange = {(event) => setDescription(event.target.value)}
@@ -112,7 +98,7 @@ function ExpenseForm ({onExpenseAdded, expense, onExpenseUpdated, onClose}){
 
             <input 
                 type="submit" 
-                value={submitting ? (isEditing ? 'Saving...': 'Adding...') : (isEditing ? 'Save Changes' : 'Add Expense')} 
+                value={submitting ? 'Adding...' : 'Add Income'} 
                 id='submit-btn'
                 disabled={submitting}
             />
@@ -120,4 +106,4 @@ function ExpenseForm ({onExpenseAdded, expense, onExpenseUpdated, onClose}){
     )
 }
 
-export default ExpenseForm;
+export default IncomeForm;

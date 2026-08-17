@@ -13,6 +13,7 @@ app.use(cors());
 //Routers
 const authRoutes = require('./src/routes/authRoutes');
 const expenseRouter = require('./src/routes/expenseRoutes');
+const incomeRouter = require('./src/routes/incomeRoutes');
 
 //Parses JSON requests
 app.use(express.json());
@@ -20,6 +21,7 @@ app.use(express.json());
 //Endpoints
 app.use('/api/auth', authRoutes);
 app.use('/api/expenses', expenseRouter);
+app.use('/api/incomes', incomeRouter);
 
 app.get("/", (req, res) => {
     res.status(200).json({message: "Expense Tracker API"});
