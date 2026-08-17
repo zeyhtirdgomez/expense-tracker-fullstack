@@ -6,8 +6,11 @@ const postExpense = async (req, res, next) => {
         // Destructuring req.body
         const {amount, category, description = "" } = req.body;
         
+        const user = req.user.id;
+        
         // Creating expense document
         const expense = await Expense.create({
+            user,
             amount,
             category,
             description  
@@ -24,7 +27,7 @@ const postExpense = async (req, res, next) => {
 const getExpenses = async (req, res, next) => {
     try {
         // Finding all expense
-        const expenses = await Expense.find();
+        const expenses = await Expense.find({user : req.user.id});
         
         // Returning array of documents
         return res.status(200).json(expenses);
@@ -37,7 +40,8 @@ const getExpenses = async (req, res, next) => {
 const getExpense = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const expense = await Expense.findById(id);
+
+        const expense = await Expense.findOne({user : req.user.id, _id : req.params.id});
         
         if (!expense)
             return res.status(404).json({message : "Expense not found."});
@@ -55,7 +59,7 @@ const updateExpense = async (req, res, next) => {
         const { amount, category, description } = req.body;
 
         // Find expense document using id parameter
-        const expense = await Expense.findById(req.params.id);
+        const expense = await Expense.findOne({user : req.user.id, _id : req.params.id});
 
         if (!expense)
             return res.status(404).json({message : "Expense not found."});
@@ -81,7 +85,7 @@ const updateExpense = async (req, res, next) => {
 
 const deleteExpense = async (req, res, next) => {
     try {
-        const expense = await Expense.findByIdAndDelete(req.params.id);
+        const expense = await Expense.findOneAndDelete({user : req.user.id, _id : req.params.id});
 
         if(!expense) 
             return res.status(404).json({message : 'Expense not found.'});

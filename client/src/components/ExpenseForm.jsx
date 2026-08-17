@@ -22,11 +22,18 @@ function ExpenseForm ({onExpenseAdded, expense, onExpenseUpdated}){
         };
 
         try {
+
             if (isEditing){
-                const response = await axios.patch(`http://localhost:5000/api/expenses/${expense._id}`, data);
+                const response = await axios.patch(`http://localhost:5000/api/expenses/${expense._id}`, 
+                    data,
+                    {headers : { Authorization : `Bearer ${localStorage.getItem("token")}`}}
+                );
                 onExpenseUpdated(response.data);
             } else{
-                const response = await axios.post('http://localhost:5000/api/expenses/', data);
+                const response = await axios.post('http://localhost:5000/api/expenses/',
+                    data,
+                    {headers : {Authorization : `Bearer ${localStorage.getItem("token")}`}}
+                );
                 onExpenseAdded(response.data);
             }
             

@@ -17,7 +17,14 @@ function Dashboard() {
     useEffect(() => {
         const fetchExpenses = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/expenses');
+                const token = localStorage.getItem('token');
+                
+                const response = await axios.get('http://localhost:5000/api/expenses', {
+                    headers : {
+                        Authorization : `Bearer ${token}`
+                    }
+                });
+
                 setExpenses(response.data);
             } catch (err) {
                 setError('Failed to load expense');

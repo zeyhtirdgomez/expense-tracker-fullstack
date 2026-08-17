@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
+    console.log('AUTH HEADER: ', req.headers.authorization)
+
     if (!req.headers.authorization)
         return res.status(401).json({message : 'No authorization token'});
 
@@ -17,7 +19,12 @@ const authMiddleware = (req, res, next) => {
         req.user = user;
         next();
     } catch (error) {
+        console.log("STATUS:", err.response?.status);
+        console.log("DATA:", err.response?.data);
+        console.log("HEADERS:", err.config?.headers);
         return res.status(401).json({message : 'Unauthorized'});
+        
+
     }
 };
 

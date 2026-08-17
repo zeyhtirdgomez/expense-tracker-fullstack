@@ -20,7 +20,9 @@ function ExpenseCard({ _id, category, description, amount, date, onExpenseDelete
         console.log(`http://localhost:5000/api/expenses${_id}`);
 
         try {
-            await axios.delete(`http://localhost:5000/api/expenses/${_id}`);
+            await axios.delete(`http://localhost:5000/api/expenses/${_id}`, 
+                {headers : {Authorization : `Bearer ${localStorage.getItem("token")}`}}
+            );
             onExpenseDeleted(_id);
             
 

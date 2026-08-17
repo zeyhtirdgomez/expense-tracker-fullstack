@@ -10,19 +10,19 @@ const {
     deleteExpense,
 } = require('../controllers/expenseController');
 
-//Validation
+// Middlewares
 const { 
     validateAmount, 
     validateCategory,
     updateAmountValidation,
 } = require('../middleware/expenseValidation');
+const authMiddleware = require('../middleware/authMiddleware');
 
-
-router.get("/", getExpenses);
-router.get('/:id', getExpense);
-router.post("/", validateAmount, validateCategory, postExpense);
-router.patch("/:id", updateAmountValidation, updateExpense);
-router.put("/:id", updateAmountValidation, updateExpense);
-router.delete("/:id", deleteExpense);
+router.get("/", authMiddleware, getExpenses);
+router.get('/:id', authMiddleware, getExpense);
+router.post("/", authMiddleware, validateAmount, validateCategory, postExpense);
+router.patch("/:id", authMiddleware, updateAmountValidation, updateExpense);
+router.put("/:id", authMiddleware, updateAmountValidation, updateExpense);
+router.delete("/:id", authMiddleware, deleteExpense);
 
 module.exports = router;
