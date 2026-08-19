@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 💰 Expense Tracker
 
 
@@ -13,17 +12,11 @@ This project was built to practice **full-stack web development**, including fro
 
 ---
 
-=======
-💰 Expense Tracker
 
-A full-stack expense and income management application built with React, Express.js, MongoDB, and JWT authentication.
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
+## ✨ Features
 
-Track your income and expenses, monitor your remaining balance, filter transactions, and view your monthly spending — all through a responsive interface.
 
-<<<<<<< HEAD
-
-### Authentication
+### 🔐 Authentication
 
 
 - User registration
@@ -37,7 +30,7 @@ Track your income and expenses, monitor your remaining balance, filter transacti
 - Invalid credentials handling
 
 
-### Expense Management
+### 💸 Expense Management
 
 
 - Add expenses
@@ -50,7 +43,7 @@ Track your income and expenses, monitor your remaining balance, filter transacti
 - User-specific expenses
 
 
-### Income Management
+### 💰 Income Management
 
 
 - Add income
@@ -61,7 +54,7 @@ Track your income and expenses, monitor your remaining balance, filter transacti
 - User-specific income
 
 
-### Dashboard
+### 📊 Dashboard
 
 
 The dashboard provides an overview of the user's finances:
@@ -75,7 +68,7 @@ The dashboard provides an overview of the user's finances:
 - Real-time UI updates after adding, editing, or deleting transactions
 
 
-### Responsive Interface
+### 📱 Responsive Interface
 
 
 The application was designed to work across different screen sizes:
@@ -91,7 +84,7 @@ The application was designed to work across different screen sizes:
 - No major horizontal overflow
 
 
-### Application States
+### ⚠️ Application States
 
 
 The application handles:
@@ -108,12 +101,9 @@ The application handles:
 
 ---
 
-=======
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
 
----
+## 🛠️ Tech Stack
 
-<<<<<<< HEAD
 
 ### Frontend
 
@@ -147,114 +137,12 @@ The application handles:
 
 ---
 
-=======
-✨ Features
 
-🔐 Authentication
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
+## 🏗️ Project Structure
 
-User registration
-
-User login
-
-JWT authentication
-
-Password hashing with bcryptjs
-
-User-specific financial data
-
-
-💸 Expense Management
-
-Add expenses
-
-Edit expenses
-
-Delete expenses
-
-Filter expenses by category
-
-Monthly expense calculations
-
-
-💰 Income Management
-
-Add income
-
-Edit income
-
-Delete income
-
-Track total income
-
-
-📊 Dashboard
-
-Total income
-
-Total expenses
-
-Remaining balance
-
-Monthly expenses
-
-Real-time updates after adding, editing, or deleting transactions
-
-
-📱 Responsive UI
-
-Desktop-friendly interface
-
-Mobile-friendly layout
-
-Responsive forms and transaction cards
-
-No major horizontal overflow
-
-
-
----
-
-🛠️ Tech Stack
-
-Frontend
-
-Technology	Purpose
-
-React	User interface
-Axios	API requests
-CSS	Styling
-
-
-Backend
-
-Technology	Purpose
-
-Node.js	Runtime
-Express.js	REST API
-MongoDB	Database
-Mongoose	MongoDB ODM
-JWT	Authentication
-bcryptjs	Password hashing
-CORS	Cross-origin requests
-
-
-
----
-
-🏗️ Project Structure
-
-<<<<<<< HEAD
 
 ```text
 expense-tracker/
-=======
-expense-tracker/
-│
-├── frontend/
-│   ├── src/
-│   └── package.json
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
 │
 ├── client/
 │   ├── src/
@@ -287,9 +175,8 @@ expense-tracker/
 
 ---
 
-<<<<<<< HEAD
 
-## Getting Started
+## 🚀 Getting Started
 
 
 ### Prerequisites
@@ -301,33 +188,24 @@ Make sure you have the following installed:
 - [Node.js](https://nodejs.org/)
 - MongoDB or a MongoDB Atlas database
 - Git
-=======
-🚀 Getting Started
-
-1. Clone the repository
-
-git clone <your-repository-url>
-cd expense-tracker
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
 
 
 ---
 
-<<<<<<< HEAD
 
-## Installation
+## 📥 Installation
 
 
-Clone the repository:
+### 1. Clone the Repository
 
 
 ```bash
-git clone <your-repository-url>
-cd expense-tracker
+git clone https://github.com/zeyhtirdgomez/expense-tracker-fullstack.git
+cd expense-tracker-fullstack
 ```
 
 
-### Install Frontend Dependencies
+### 2. Install Frontend Dependencies
 
 
 ```bash
@@ -336,10 +214,10 @@ npm install
 ```
 
 
-### Install Backend Dependencies
+### 3. Install Backend Dependencies
 
 
-Open another terminal:
+Open another terminal and run:
 
 
 ```bash
@@ -351,29 +229,13 @@ npm install
 ---
 
 
-## Environment Variables
+## 🔐 Environment Variables
 
 
 The backend requires environment variables for configuration.
 
 
-Create a `.env` file inside the `server` directory:
-
-
-```bash
-cd server
-```
-
-
-Then create:
-
-
-```text
-.env
-```
-
-
-Add the following:
+Inside the `server` directory, create a `.env` file:
 
 
 ```env
@@ -383,10 +245,10 @@ JWT_SECRET=your_jwt_secret
 ```
 
 
-> **Never commit your `.env` file to GitHub.**
+### Example Environment File
 
 
-Use `.env.example` as a template for other developers:
+The repository includes a `.env.example` file:
 
 
 ```env
@@ -394,37 +256,21 @@ PORT=
 MONGO_URI=
 JWT_SECRET=
 ```
-=======
-2. Backend Setup
 
-cd backend
-npm install
 
-Create your environment file:
+> ⚠️ **Never commit your actual `.env` file to GitHub.**
 
-cp .env.example .env
 
-Then configure your .env:
-
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-
-Start the backend:
-
-npm run dev
-
-The backend will run on:
-
-http://localhost:5000
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
+The `.env.example` file is only a template showing which environment variables are required.
 
 
 ---
 
-<<<<<<< HEAD
 
 ## ▶️ Running the Application
+
+
+The application requires both the backend and frontend servers to be running.
 
 
 ### Start the Backend
@@ -438,7 +284,7 @@ npm run dev
 ```
 
 
-The backend should run on:
+The backend will run on:
 
 
 ```text
@@ -449,7 +295,7 @@ http://localhost:5000
 ### Start the Frontend
 
 
-Open another terminal:
+Open another terminal and run:
 
 
 ```bash
@@ -466,30 +312,16 @@ http://localhost:5173
 ```
 
 
-Open the URL in your browser.
-=======
-3. Frontend Setup
-
-Open another terminal:
-
-cd frontend
-npm install
-npm run dev
-
-The frontend will be available at the URL shown by Vite, typically:
-
-http://localhost:5173
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
+Open the provided URL in your browser.
 
 
 ---
 
-<<<<<<< HEAD
 
-## Authentication Flow
+## 🔑 Authentication Flow
 
 
-The application uses JWT authentication.
+Expense Tracker uses JWT-based authentication.
 
 
 ```text
@@ -499,7 +331,7 @@ User Account Created
    ↓
 Login
    ↓
-JWT Token
+JWT Token Generated
    ↓
 Token Stored on Client
    ↓
@@ -511,57 +343,30 @@ User Data Returned
 ```
 
 
-Financial records are associated with the authenticated user, preventing users from accessing another user's expenses or income.
-=======
-🔄 Application Flow
+Financial records are associated with the authenticated user.
 
-┌──────────────┐
-                 │    Register  │
-                 └──────┬───────┘
-                        ↓
-                 ┌──────────────┐
-                 │     Login    │
-                 └──────┬───────┘
-                        ↓
-                🔐 JWT Authentication
-                        ↓
-                 ┌──────────────┐
-                 │   Dashboard  │
-                 └──────┬───────┘
-                        │
-          ┌─────────────┼─────────────┐
-          ↓             ↓             ↓
-       Income        Expenses      Statistics
-          │             │             │
-          ↓             ↓             ↓
-        CRUD           CRUD       Calculations
-          │             │             │
-          └─────────────┼─────────────┘
-                        ↓
-                    MongoDB
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
+
+This prevents users from accessing another user's expenses or income.
 
 
 ---
 
-<<<<<<< HEAD
 
-## Expense & Income Flow
-
-
-### Expense
+## 💸 Expense Flow
 
 
 ```text
 Add Expense
      ↓
-React Form
+React Expense Form
      ↓
 Axios POST Request
      ↓
 Express API
      ↓
 JWT Authentication
+     ↓
+Expense Validation
      ↓
 MongoDB
      ↓
@@ -571,13 +376,25 @@ React UI Updates
 ```
 
 
-### Income
+Expenses can also be:
+
+
+- Viewed
+- Edited
+- Deleted
+- Filtered by category
+
+
+---
+
+
+## 💰 Income Flow
 
 
 ```text
 Add Income
      ↓
-React Form
+React Income Form
      ↓
 Axios POST Request
      ↓
@@ -585,47 +402,63 @@ Express API
      ↓
 JWT Authentication
      ↓
+Income Validation
+     ↓
 MongoDB
      ↓
 Income Created
      ↓
 React UI Updates
 ```
-=======
-🔒 Environment Variables
 
-For security, sensitive environment variables are not committed to GitHub.
 
-The repository includes:
+Income records can also be:
 
-.env.example
 
-as a template for required environment variables.
-
-Never commit your actual .env file.
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
+- Viewed
+- Edited
+- Deleted
 
 
 ---
 
-<<<<<<< HEAD
 
-## Dashboard Calculations
+## 📊 Dashboard
 
 
-The dashboard calculates financial information from the user's transactions.
+The dashboard provides a summary of the user's financial activity.
+
+
+### Dashboard Information
 
 
 ```text
-Total Income
-      ↓
-Total Expenses
-      ↓
-Remaining Balance
+┌─────────────────────────┐
+│      Total Income       │
+│       ₱7,000.00         │
+└─────────────────────────┘
+
+
+┌─────────────────────────┐
+│     Total Expenses      │
+│       ₱1,000.00         │
+└─────────────────────────┘
+
+
+┌─────────────────────────┐
+│    Remaining Balance    │
+│       ₱6,000.00         │
+└─────────────────────────┘
+
+
+┌─────────────────────────┐
+│    Monthly Expenses     │
+│         ₱700.00         │
+└─────────────────────────┘
 ```
 
 
-The remaining balance is calculated as:
+### Balance Calculation
 
 
 ```text
@@ -633,47 +466,65 @@ Remaining Balance = Total Income - Total Expenses
 ```
 
 
-Monthly expenses are calculated using the expense date and the current month and year.
-=======
-📊 Dashboard
-
-The dashboard provides an overview of your financial activity:
-
-┌──────────────────┐
-│   Total Income   │
-│    ₱7,000.00     │
-└──────────────────┘
-
-┌──────────────────┐
-│  Total Expenses  │
-│    ₱1,000.00     │
-└──────────────────┘
-
-┌──────────────────┐
-│ Remaining Balance│
-│    ₱6,000.00     │
-└──────────────────┘
-
-┌──────────────────┐
-│ Monthly Expenses │
-│      ₱700.00     │
-└──────────────────┘
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
+Monthly expenses are calculated based on the expense date and the current month and year.
 
 
 ---
 
-<<<<<<< HEAD
 
-## Testing
+## 🔎 Expense Filtering
+
+
+Users can filter expenses by category.
+
+
+Available categories include:
+
+
+- Tithes
+- Food
+- Transport
+- School
+- Bills
+- Shopping
+- Savings
+- Others
+
+
+The dashboard updates the displayed expense list based on the selected category.
+
+
+---
+
+
+## 🔒 Security
+
+
+The project implements several basic security practices:
+
+
+- Passwords are hashed using `bcryptjs`
+- Protected API endpoints require JWT authentication
+- User-specific queries prevent cross-user data access
+- JWT secrets are stored in environment variables
+- MongoDB credentials are stored in environment variables
+- `.env` files are excluded from Git
+- Authentication middleware protects private routes
+- Users cannot modify another user's financial records
+
+
+---
+
+
+## 🧪 Testing
 
 
 The application was manually tested for:
 
 
-- Registration
-- Login
-- Logout
+- User registration
+- User login
+- User logout
 - Invalid credentials
 - Protected routes
 - Expense creation
@@ -687,104 +538,98 @@ The application was manually tested for:
 - User data isolation
 - Form validation
 - API errors
+- Loading states
+- Empty states
 - Responsive layouts
 
 
-API endpoints were tested during development using **Postman**.
-=======
-🎯 What I Learned
-
-This project was built to practice full-stack development and includes experience with:
-
-Building a REST API with Express.js
-
-Connecting React to a backend API
-
-MongoDB data modeling with Mongoose
-
-JWT-based authentication
-
-Password hashing
-
-CRUD operations
-
-Protected API routes
-
-User data isolation
-
-React state management
-
-Form handling and validation
-
-Filtering data
-
-Monthly calculations
-
-Responsive UI development
-
-Git and GitHub workflow
-
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
+Backend API endpoints were tested during development using **Postman**.
 
 
 ---
 
-<<<<<<< HEAD
 
-## Security
-
-
-The project implements several basic security practices:
+## 📚 What I Learned
 
 
-- Passwords are hashed using `bcryptjs`
-- Protected endpoints require JWT authentication
-- User-specific queries prevent cross-user data access
-- JWT secrets are stored in environment variables
-- MongoDB credentials are stored in environment variables
-- `.env` files are excluded from Git
-=======
-📌 Project Status
+This project helped me practice:
 
-MVP Complete ✅
+
+- React component development
+- React state management
+- React Router
+- Form handling
+- Form validation
+- Axios API integration
+- REST API development
+- Express.js
+- MongoDB
+- Mongoose
+- JWT authentication
+- Password hashing
+- Protected API routes
+- Authorization
+- CRUD operations
+- User data isolation
+- Filtering data
+- Monthly calculations
+- Responsive UI development
+- Error handling
+- Git and GitHub workflow
+
+
+---
+
+
+## 📌 Project Status
+
+
+### MVP Complete ✅
+
 
 The core expense and income tracking functionality is implemented and working.
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
+
+
+The current version includes:
+
+
+- Authentication
+- Expense CRUD
+- Income CRUD
+- Dashboard
+- Category filtering
+- Monthly expense calculations
+- User-specific data
+- Responsive interface
+- Logout functionality
 
 
 ---
 
-<<<<<<< HEAD
 
-## Project Status
-
-
-### MVP Completed 
-
-
-The current version includes the core functionality required for a personal expense and income tracker.
-
-
-### Future Improvements
+## 🔮 Future Improvements
 
 
 Possible future improvements include:
 
 
-- Expense pagination
-- Charts and data visualization
-- Budget limits
-- Recurring transactions
-- Exporting financial reports
-- Advanced filtering
-- Dark mode
-- Deployment
+- [ ] Expense pagination
+- [ ] Income pagination
+- [ ] Charts and data visualization
+- [ ] Budget limits
+- [ ] Recurring transactions
+- [ ] Export financial reports
+- [ ] Advanced filtering
+- [ ] Dark mode
+- [ ] Notifications
+- [ ] Deployment
+- [ ] Production database configuration
 
 
 ---
 
 
-## Purpose
+## 🎯 Project Purpose
 
 
 This project was created as a practical **full-stack development project** to strengthen my understanding of:
@@ -810,50 +655,19 @@ It serves as a foundation for building larger full-stack applications.
 ---
 
 
-## Author
+## 👨‍💻 Author
 
 
 **Zeyhtird Gomez**
 
 
-Built as a full-stack development project.
+Built as a full-stack development project to practice and strengthen practical experience with **React, Node.js, Express.js, MongoDB, and JWT authentication**.
 
 
 ---
 
 
-## License
+## 📄 License
 
 
 This project is for educational and portfolio purposes.
-=======
-🔮 Possible Future Improvements
-
-Pagination
-
-Data visualization and charts
-
-Dark mode
-
-Export reports
-
-Budget limits
-
-Recurring transactions
-
-Notifications
-
-Advanced filtering
-
-Deployment
-
-
-
----
-
-👨‍💻 Author
-
-Zeyhtird Gomez
-
-Built as a full-stack development project to strengthen practical experience with React, Node.js, Express.js, MongoDB, and JWT authentication.
->>>>>>> 3afd5165d95e61c6e37f27a969287bd5b95018a3
