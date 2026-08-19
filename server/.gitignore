@@ -1,5 +1,7 @@
 #.env file
 .env
+.env.*
+!.env.example
 
 #Node Modules / Dependency Modules
 node_modules/
